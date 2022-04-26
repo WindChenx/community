@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @Controller
-public class TestController {
+public class IndexController {
 
-    @RequestMapping("/hello")
-    public String sayHello(){
+    @GetMapping("/")
+    public String index() {
         return "index";
     }
 
