@@ -1,6 +1,6 @@
 package com.wind.community.dao;
 
-public class User {
+public class GithubUserDao {
     private String login;
     private Long id;
 
@@ -18,5 +18,13 @@ public class User {
 
     public void setLogin(String login) {
         this.login = login;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "login='" + login + '\'' +
+                ", id=" + id +
+                '}';
     }
 }

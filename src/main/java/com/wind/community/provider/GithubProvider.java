@@ -1,9 +1,8 @@
 package com.wind.community.provider;
 
 import com.alibaba.fastjson.JSON;
-import com.fasterxml.jackson.annotation.JsonAlias;
 import com.wind.community.dao.AccessTokenDao;
-import com.wind.community.dao.User;
+import com.wind.community.dao.GithubUserDao;
 import okhttp3.*;
 import org.springframework.stereotype.Component;
 
@@ -32,7 +31,7 @@ System.out.println(JSON.toJSONString(accessTokenDTO));
     }
 
 
-    public User getUser(String accessToken) {
+    public GithubUserDao getUser(String accessToken) {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url("https://api.github.com/user")
@@ -42,8 +41,8 @@ System.out.println(JSON.toJSONString(accessTokenDTO));
             Response response = client.newCall(request).execute();
             String string = response.body().string();
             System.out.println(string);
-            User githubUser = JSON.parseObject(string, User.class);
-            return githubUser;
+            GithubUserDao githubUserDao = JSON.parseObject(string, GithubUserDao.class);
+            return githubUserDao;
         } catch (IOException e) {
         }
         return null;
