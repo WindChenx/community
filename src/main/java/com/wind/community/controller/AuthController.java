@@ -52,6 +52,7 @@ public class AuthController {
                 user.setAccountId(String.valueOf(githubUserDao.getId()));
                 user.setGmtCreate(System.currentTimeMillis());
                 user.setGmtModified(user.getGmtCreate());
+                user.setAvatarUrl(githubUserDao.getAvatar_url());
                 userMapper.insert(user);
                 response.addCookie(new Cookie("token", token));
                 return "redirect:/";

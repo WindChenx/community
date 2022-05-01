@@ -1,5 +1,7 @@
 package com.wind.community.model;
 
+import lombok.Data;
+
 public class Question {
     private Integer id;
     private String title;
