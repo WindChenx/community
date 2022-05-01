@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 package com.wind.community.model;
-=======
-package com.wind.community.mapper;
->>>>>>> 28629eaf3762b0619708d2dd0b377e5556a78d71
 
 public class User {
     private Integer id;
