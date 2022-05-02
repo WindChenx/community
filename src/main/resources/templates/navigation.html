@@ -10,7 +10,7 @@
                         data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                     <span class="sr-only">Slove</span>
                 </button>
-                <a class="navbar-brand" href="#">Slove</a>
+                <a class="navbar-brand" href="/">Slove</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <form class="navbar-form navbar-left">
@@ -27,8 +27,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false" th:text="${session.user.getName()}"><span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">消息中心</a></li>
-                            <li><a href="#">个人资料</a></li>
+                            <li><a href="/profile/questions">我的问题</a></li>
                             <li><a href="#">退出登录</a></li>
                         </ul>
                     </li>
