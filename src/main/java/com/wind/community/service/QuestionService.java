@@ -1,7 +1,7 @@
 package com.wind.community.service;
 
-import com.wind.community.dao.PaginationDTO;
-import com.wind.community.dao.QuestionDTO;
+import com.wind.community.dto.PaginationDTO;
+import com.wind.community.dto.QuestionDTO;
 import com.wind.community.mapper.QuestionMapper;
 import com.wind.community.mapper.UserMapper;
 import com.wind.community.model.Question;

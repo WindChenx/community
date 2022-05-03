@@ -1,4 +1,4 @@
-package com.wind.community.dao;
+package com.wind.community.dto;
 
 import com.wind.community.model.User;
 

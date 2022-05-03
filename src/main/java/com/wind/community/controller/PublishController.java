@@ -1,7 +1,6 @@
 package com.wind.community.controller;
 
 import com.wind.community.mapper.QuestionMapper;
-import com.wind.community.mapper.UserMapper;
 import com.wind.community.model.Question;
 import com.wind.community.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +18,6 @@ public class PublishController {
     @Autowired
     private QuestionMapper questionMapper;
 
-    @Autowired
-    private UserMapper userMapper;
 
     @GetMapping("/publish")
     public String publish() {

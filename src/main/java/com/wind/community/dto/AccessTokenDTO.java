@@ -1,6 +1,6 @@
-package com.wind.community.dao;
+package com.wind.community.dto;
 
-public class AccessTokenDao {
+public class AccessTokenDTO {
     private String client_id;
     private String client_secret;
     private String code;

@@ -1,6 +1,6 @@
-package com.wind.community.dao;
+package com.wind.community.dto;
 
-public class GithubUserDao {
+public class GithubUserDTO {
     private String login;
     private Long id;
     private String avatar_url;

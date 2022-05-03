@@ -1,7 +1,7 @@
 package com.wind.community.controller;
 
-import com.wind.community.dao.AccessTokenDao;
-import com.wind.community.dao.GithubUserDao;
+import com.wind.community.dto.AccessTokenDTO;
+import com.wind.community.dto.GithubUserDTO;
 import com.wind.community.mapper.UserMapper;
 import com.wind.community.model.User;
 import com.wind.community.provider.GithubProvider;
@@ -10,10 +10,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import sun.nio.cs.US_ASCII;
 
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.UUID;
 
@@ -34,7 +32,7 @@ public class AuthController {
     @GetMapping("/callback")
     public String callback(@RequestParam(name = "code") String code,
                            @RequestParam(name = "state") String state, HttpServletResponse response) {
-        AccessTokenDao accessTokenDTO = new AccessTokenDao();
+        AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
         accessTokenDTO.setClient_id(clientId);
         accessTokenDTO.setClient_secret(clientSecret);
         accessTokenDTO.setCode(code);
@@ -43,16 +41,16 @@ public class AuthController {
         String accessToken = githubProvider.getAccessToken(accessTokenDTO);
         System.out.println(accessToken);
         if (accessToken != null) {
-            GithubUserDao githubUserDao = githubProvider.getUser(accessToken);
-            if (githubUserDao != null && githubUserDao.getId() != null) {
+            GithubUserDTO githubUserDTO = githubProvider.getUser(accessToken);
+            if (githubUserDTO != null && githubUserDTO.getId() != null) {
                 User user = new User();
                 String token = UUID.randomUUID().toString();
                 user.setToken(token);
-                user.setName(githubUserDao.getLogin());
-                user.setAccountId(String.valueOf(githubUserDao.getId()));
+                user.setName(githubUserDTO.getLogin());
+                user.setAccountId(String.valueOf(githubUserDTO.getId()));
                 user.setGmtCreate(System.currentTimeMillis());
                 user.setGmtModified(user.getGmtCreate());
-                user.setAvatarUrl(githubUserDao.getAvatar_url());
+                user.setAvatarUrl(githubUserDTO.getAvatar_url());
                 userMapper.insert(user);
                 response.addCookie(new Cookie("token", token));
                 return "redirect:/";

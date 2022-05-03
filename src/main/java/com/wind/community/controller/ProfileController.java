@@ -1,6 +1,6 @@
 package com.wind.community.controller;
 
-import com.wind.community.dao.PaginationDTO;
+import com.wind.community.dto.PaginationDTO;
 import com.wind.community.mapper.UserMapper;
 import com.wind.community.model.User;
 import com.wind.community.service.QuestionService;
